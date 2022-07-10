@@ -25,3 +25,8 @@ P:
 for loop for how many objects, then for...in to iterate over each object
 if the property doesn't exist, make one, if it exists, add to the existing
 */
+
+function checkMax(){
+    let x=Array.from(...arguments)
+    return x.sort((a,b)=>a-b)[x.length-1]
+}
