@@ -10,7 +10,7 @@ const evenCounter = function(array, num){
     let arr = []
     for (let i=array.length-1; i>=0; i--){
         if (arr.length === num){
-            return arr
+            return arr.reverse()
         }else if (arr.length < num && array[i]%2===0){
             arr.push(array[i])
         }
