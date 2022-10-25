@@ -18,6 +18,5 @@ const evenCounter = function(array, num){
 }
 
 const evenCounter2 = function(array, num){
-    array=array.filter(x=>x%2===0)
-    return array.slice(-num)
+    return array.filter(x=>x%2===0).slice(-num)
 }
