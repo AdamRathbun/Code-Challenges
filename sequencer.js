@@ -24,3 +24,15 @@ function sequencer(arr, mix){
     }
     return 0
 }
+
+function sequencer2(arr){
+    // get an array of that's 1 to N but potentially missing a number, return the missing number, or else 0
+    if (!arr) return 0 
+    arr=arr.sort((a,b)=>a-b)
+    for (let i=1; i<=arr[arr.length-1]; i++){
+        if (arr[i] !== (arr[i+1] - 1) ){
+            return arr[i] + 1
+        }
+    }
+    return 0
+}
