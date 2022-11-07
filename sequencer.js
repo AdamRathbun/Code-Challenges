@@ -36,3 +36,14 @@ function sequencer2(arr){
     }
     return 0
 }
+
+function sequencer3(arr, mix){
+    // get an array of that's 1 to N and another array that's 1 to N but missing a number, return the missing number, or else 0
+    if (arr.length===mix.length){
+        return 0 
+    } else {
+        let sum1 = arr.reduce((a,b)=>a+b)
+        let sum2 = mix.reduce((a,b)=>a+b)
+        return sum1-sum2
+    }
+}
