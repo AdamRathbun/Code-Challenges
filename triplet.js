@@ -16,3 +16,5 @@ function triplet (array){
     let arr1=[...array].sort((a,b)=>a-b)
     return array.indexOf(arr1[1])
 }
+
+// note that sort changes the array so have to spread it first
