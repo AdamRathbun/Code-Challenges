@@ -26,3 +26,16 @@ function sortTheOdd(array){
     }
     return array
 }
+
+function sortTheOdd2(array){
+    const odds = array.filter(x=> x%2!==0).sort((a,b)=>a-b)
+    let count=0
+    for (let i=0; i<array.length; i++){
+        if (array[i]%2!==0){
+            console.log(arr[count])
+            array[i]=arr[count]
+            count+=1
+        }
+    }
+    return array
+}
