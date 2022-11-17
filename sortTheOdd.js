@@ -29,13 +29,12 @@ function sortTheOdd(array){
 
 function sortTheOdd2(array){
     const odds = array.filter(x=> x%2!==0).sort((a,b)=>a-b)
-    let count=0
-    for (let i=0; i<array.length; i++){
-        if (array[i]%2!==0){
-            console.log(arr[count])
-            array[i]=arr[count]
-            count+=1
-        }
-    }
-    return array
+    return array.map(x=> x%2=== 0 ? x : odds.shift())
+}
+
+function sortTheOdd3(array){
+    // 1 is automatically truthy
+    const odds = array.filter(x=> x%2).sort((a,b)=>b-a)
+    // shift is O(n) but pop() is O(1)
+    return array.map(x=> x%2=== 0 ? x : odds.pop())
 }
