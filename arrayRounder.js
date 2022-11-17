@@ -15,3 +15,8 @@ function arrayRounder(arr){
     let arr1=arr.map(x=>x[0])
     return arr1.map(x=>x.repeat(rounder))
 }
+
+function arrayRounde2(arr){
+    const avg = Math.round(arr.join('').length/arr.length)
+    return arr.map(x=>x[0].repeat(avg))
+}
