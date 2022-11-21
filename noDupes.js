@@ -19,3 +19,8 @@ function noDupes(string){
     console.log(arr)
     return arr.join(' ')
 }
+
+function noDupes2(string){
+    let words = string.split(' ')
+    return words.filter((v,i,a)=> v!==a[i-1]).join('')
+}
