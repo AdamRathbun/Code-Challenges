@@ -11,7 +11,6 @@ function noDupes(string){
     let arr=[]
     for (let i=0; i<words.length; i++){
         if (words[i]!==last){
-            words[count]=words[i]
             last=words[i]
             count++
             arr.push(words[i])
