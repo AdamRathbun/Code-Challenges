@@ -11,3 +11,15 @@ function letterCounter(string){
     })
     return bank
 }
+
+function letterCounter2(string){
+    let bank = {}
+    for (let c of string){
+        if (bank[c]){
+            bank[c]++
+        }else{
+            bank[c]=1
+        }
+    }
+    return bank
+}
