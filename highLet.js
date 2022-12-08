@@ -8,7 +8,7 @@
 
 // No String or Array Methods (well brute force it first, but then no methods)! 
 
-function highLet(string){
+function maxLet(string){
     let dict = {}
     for (let letter of string){
         dict[letter] = (dict[letter] || 0) +1
@@ -20,4 +20,18 @@ function highLet(string){
             return key
         }
     }
+}
+
+const maxLet2 = function(string){
+    let charMap = {}, count=0, maxChar=null
+    for (let char of string){
+        charMap[char] = (charMap[char] || 0) + 1
+    }
+    for (let char in charMap){
+        if (charMap[char] > count){
+            maxChar=char
+            count=charMap[char]
+        }
+    }
+    return maxChar
 }
