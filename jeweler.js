@@ -30,3 +30,22 @@ const jeweler = function (jewels, stones) {
     return count
 }
 
+function jeweler2 (jewels, stones){
+    let map = {}
+    let count = 0
+    for (let jewel of jewels){
+        // my map will have the value of true for each value of jewels, which will be "a" and "A", so "a"=true and "A"=true
+        map[jewel]=true
+    }
+
+    for (let stone of stones){
+        if (map[stone]){
+            count++
+        }
+    }
+    return count
+}
+
+// Input: jewels = "aA", stones = "aAAbbbb"
+// Output: 3
+// console.log(jeweler2("aA", "aAAbbbb")) should return 3
