@@ -22,3 +22,17 @@ function uniquer(array){
         return true
     }
 }
+
+function uniquer2(array){
+    let numsMap = {}
+    for (let i=0; i<array.length; i++){
+        let num =arr[i]
+        if (numsMap[num]){
+            return true
+        }else {
+            numsMap[num] = true
+        }
+    }
+    return false
+}
+// the hash map is faster due to immediate termination at correct value, so better for large data sizes
