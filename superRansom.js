@@ -39,3 +39,23 @@ const ransomNote = function(note, magazine){
     }
     return true
 }
+
+const ransomNote2 = function(note, magazine){
+    const hashMap = {}
+    const wordsM = magazine.split(' ')
+    const wordsN = note.split(' ')
+    let possibleNote= true
+
+    for (let word of wordsM){
+        hashMap[word] = hashMap[word] +1 || 1
+    }
+    for (let word of wordsN){
+        if (hashMap[word]){
+            hashMap[word]-=1
+            continue
+        }else {
+            possibleNote = false
+        }
+    }
+    return possibleNote
+}
