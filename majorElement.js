@@ -22,3 +22,37 @@ const majorElement = function (array) {
         }
     }
 }
+
+const majorElement2 = function (array) {
+    let hashMap = {}
+    let count = 0
+    let finalElement =''
+    array.forEach( element => {
+        hashMap[element] = (hashMap[element] +1 || 1 )
+    })
+    for (let key in hashMap){
+        if (hashMap[key]>count){
+            count = hashMap[key]
+            finalElement = key
+        }
+    }
+    return Number(finalElement)
+}
+
+const majorElement3 = function (array) {
+    let hashMap = {}
+    for (const num of array){
+        if (hashMap[num] > array.length){
+            return num
+        }else {
+            hashMap[num] = hashMap[num] + 1 || 1
+        }
+    }
+}
+
+const majorElement4 = function (array) {
+    const sorted = array.sort((a,b)=> a-b)
+    return array[Math.ceil(array.length/2)]
+}
+
+
