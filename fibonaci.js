@@ -26,5 +26,5 @@ const fibo = function(num){
     for (let i = 2; i<=num; i++){
         arr[i] = arr[i-1] +arr[i-2]
     }
-    return arr[num ]
+    return arr[num]
 }
