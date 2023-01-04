@@ -22,8 +22,23 @@ const fib = function(n){
     }else if (memo[n]){
         return memo[n]
     }else {
-        let number = fib(n-1) + fib(n-2)
-        memo[n] = number
-        return number
+        let result = fib(n-1) + fib(n-2)
+        memo[n] = result
+        return result
+    }
+}
+
+
+// slightly refactored:
+let memo2 = []
+const fib2 = function (n, memo2){
+    if ( memo[n]!==null ){
+        return memo[n]
+    }else if (n ===1 || n===2){
+        return n
+    }else {
+        result = fib2[n-1] + fib2[n-2]
+        memo[n] = result
+        return result
     }
 }
