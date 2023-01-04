@@ -32,13 +32,18 @@ const fib = function(n){
 // slightly refactored:
 let memo2 = []
 const fib2 = function (n, memo2){
-    if ( memo[n]!==null ){
+    if ( memo2[n]!==null ){
         return memo[n]
+        // time complexity = O(1)
     }else if (n ===1 || n===2){
         return n
+        // time complexity = O(1)
     }else {
         result = fib2[n-1] + fib2[n-2]
-        memo[n] = result
+        memo2[n] = result
         return result
+        // time complexity = O(2n+1)
     }
 }
+
+// note the time complexity of memoization is rounded to O(n)
