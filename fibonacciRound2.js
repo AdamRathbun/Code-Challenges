@@ -17,7 +17,7 @@ function fibonacci3(num){
 // memoization: an optimization technique that makes applications more efficient and hence faster. It does this by storing computation results in cache, and retrieving that info from the cache the next time it's needed instead of computing it again.
 let memo = {}
 const fib = function(n){
-    if (n === 1 || n === 0){
+    if (n <= 1){
         return n
         // time complexity = O(1)( memo2[n]!==null ){
     }else if (memo[n]){
