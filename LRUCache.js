@@ -2,7 +2,7 @@ class LRUCache {
     constructor(capacity) {
       this.capacity = capacity;
       this.cache = new Map();
-      //the Map object provides O(1) time complexity for get and set operations
+      //the Map object provides O(1) time complexity for get and set operations. It holds key-value pairs and remembers the original insertion order of the keys.
     }
   
     get(key) {
@@ -11,6 +11,7 @@ class LRUCache {
       this.cache.delete(key);
       this.cache.set(key, value);
       //delete the old key and add a new key-value pair so that it's the most recently used
+      //the map.set() method is used to add key-value pairs to a Map object. It can also be used to update the value of an existing key. Each value must have a unique key so that they get mapped correctly.
       return value;
     }
   

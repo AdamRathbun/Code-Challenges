@@ -7,8 +7,8 @@ class Queue{
       this.tail=0
     }
     enqueue(item){
-      this.storage[this.tail]=item
       this.tail++
+      this.storage[this.tail]=item
     }
     dequeue(){
       const removed = this.storage[this.head]
@@ -16,8 +16,9 @@ class Queue{
       this.head++
       return removed
     }
-
   }
+  // remember to increment before adding new element, especially for stacks
+  // also when removing, increment after and always return the removed value
 
   const queue = new Queue()
   queue.enqueue('seahorse')
