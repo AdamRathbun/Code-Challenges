@@ -21,6 +21,9 @@
 //  });
 // });
 
+// make a ransom note function to see if the villain can cut out enough words from a magazine to make the note
+// parameters: string of what the note has to say, string of what the magazine says
+
 const ransomNote = function(note, magazine){
     let hashMap = {}
     const wordsM = magazine.split(' ')

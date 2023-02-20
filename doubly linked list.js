@@ -70,7 +70,7 @@ class DoublyLinkedList{
     }
 
     search(value){
-        // want to keep track of which node we are on
+        // want to keep track of which node we are on currently
         let currentNode=this.head
 
         while(currentNode){
