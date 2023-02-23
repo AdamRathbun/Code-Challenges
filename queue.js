@@ -29,6 +29,34 @@ class Queue{
 //   Object.keys(queue.storage) returns ['1', '2']
 //   queue.storage['1'] returns 'shark'
 
+//   Stack
+class Stack{
+  constructor(){
+      this.storage={}
+      this.size=0
+  }
+  push(item){
+      this.size++
+      this.storage[this.size]=item
+  }
+  pop(){
+      const removed = this.storage[this.size]
+      delete this.storage[this.size]
+      this.size--
+      return removed
+  }
+  peek(){
+      return this.storage[this.size]
+  }
+}
+
+const stack = new Stack()
+stack.push('dog')
+stack.push('cat')
+stack.push('bear')
+stack.pop()
+stack.peek()
+
 // Queue - bad version
 class Queue{
     constructor(){
@@ -49,30 +77,3 @@ class Queue{
     }
   }
 
-//   Stack
-  class Stack{
-    constructor(){
-        this.storage={}
-        this.size=0
-    }
-    push(item){
-        this.size++
-        this.storage[this.size]=item
-    }
-    pop(){
-        const removed = this.storage[this.size]
-        delete this.storage[this.size]
-        this.size--
-        return removed
-    }
-    peek(){
-        return this.storage[this.size]
-    }
-  }
-
-  const stack = new Stack()
-  stack.push('dog')
-  stack.push('cat')
-  stack.push('bear')
-  stack.pop()
-  stack.peek()
