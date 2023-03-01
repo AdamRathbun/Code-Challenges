@@ -1,5 +1,6 @@
 // LRU prac
 
+// version 1
 class LRU{
     constructor(capacity){
         this.capacity=capacity
@@ -9,6 +10,7 @@ class LRU{
     get(key){
         if (!this.cache.has(key)) return -1
         const value = this.cache[key]
+        // for objects of Map class, must use object.delete(key) instead of delete object[key]
         this.cache.delete(key)
         this.cache.set(key, value)
     }
