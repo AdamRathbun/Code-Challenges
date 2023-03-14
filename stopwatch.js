@@ -69,7 +69,7 @@ class Stopwatch2{
         }else {
             this.running=false
             this.endTime=new Date()
-            this.duration=(this.endTime.getTime()-this.startTime.getTime())/1000
+            this.duration+=(this.endTime.getTime()-this.startTime.getTime())/1000
         }
     }
     reset(){
@@ -91,7 +91,6 @@ watch2.myDuration
 
 
 // one more stopwatch constructor
-
 function Stopwatch3(){
     let duration=0
     let start,end=0
@@ -112,8 +111,12 @@ function Stopwatch3(){
         }else {
             running=false
             end=new Date()
-            duration=(end.getTime()-start.getTime())/1000
+            duration+=(end.getTime()-start.getTime())/1000
         }
+    }
+
+    this.add=function(secs){
+        duration+=secs
     }
 
     this.reset=function(){
@@ -123,11 +126,15 @@ function Stopwatch3(){
         running=false
     }
 
-    Object.defineProperty(this, 'duration', {
-        get: function(){
-            return duration
-        }
-    })
+    this.getTime=function(){
+        return duration
+    }
+
+    // Object.defineProperty(this, 'duration', {
+    //     get: function(){
+    //         return duration
+    //     }
+    // })
 }
 
 let watch3= new Stopwatch3()
