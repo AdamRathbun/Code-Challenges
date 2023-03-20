@@ -24,3 +24,30 @@ class LRU{
         }
     }
 }
+
+// reverse a linked list
+class Node {
+    constructor(value, next){
+        this.value=value
+        this.next=next || null
+    }
+}
+
+function reverseNodes(head){
+    let curr=head
+    let prev=null
+    while(curr){
+        let next=curr.next
+        curr.next=prev
+        prev=curr
+        curr=next
+    }
+    return prev
+}
+
+let head1=new Node(1)
+head1.next=new Node(2)
+head1.next.next=new Node(3)
+head1.next.next.next=new Node(4)
+head1.next.next.next.next=new Node(5)
+reverseNodes(head1)
