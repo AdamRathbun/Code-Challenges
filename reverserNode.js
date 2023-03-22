@@ -83,3 +83,41 @@ node1.next=new Node(2)
 node1.next.next=new Node(3)
 node1.next.next.next=new Node(4)
 reverser(node1)
+
+
+function anagramer(word){
+    const reversed=word.split('').reverse().join('')
+    if (word===reversed){
+        return 'Yes, it is an anagram.'
+    }else{
+        return 'No, it is not an anagram'
+    }
+}
+
+function anagrams(string1, string2){
+    string1=string1.split('')
+    string2=string2.split('')
+    let str1={}
+    let str2={}
+    for (let i=0; i<string1.length; i++){
+        str1[string1[i]]=str1[string1[i]]+1 || 1
+    }
+    for (let j=0; j<string2.length; j++){
+        str2[string2[j]]=str2[string2[j]]+1 || 1
+    }
+    if (JSON.stringify(str1)===JSON.stringify(str2)){
+        return true
+    }else{
+        return false
+    }
+}
+
+function anagrams2(str1, str2){
+    if (str1.length!==str2.length){
+        return false
+    }
+    let sorted1=str1.split('').sort().join('')
+    let sorted2=str2.split('').sort().join('')
+
+    return sorted1===sorted2
+}
