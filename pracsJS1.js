@@ -76,3 +76,4 @@ function palindrome2(word){
     }
     return true
 }
+
