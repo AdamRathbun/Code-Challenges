@@ -122,3 +122,38 @@ function BracketCombinations(num) {
   
   return count;
 }
+
+// check a string, see if there's a pair of numbers that add to 10 and have 3 question marks in between them. return boolean
+// if there's a pair that adds to 10 but doesn't have 3 question marks in between, return false
+function QuestionsMarks(str) { 
+  let myFilter = /[0-9\?]/g;
+  let filtered = str.match(myFilter);
+  let result = false;
+  let num1=null
+
+  if (filtered.length < 5) {
+    return false;
+  }
+
+  for (let i = 0; i < filtered.length; i++) {
+    if (filtered[i]!=='?' && !num1){
+      num1=Number(filtered[i])
+    }else if (filtered[i]!=='?' && num1+Number(filtered[i])===10){
+      num1=Number(filtered[i])
+      if (filtered[i-1] === '?' && filtered[i-2] === '?' && filtered[i-3] === '?'){
+          result=true
+      }else{
+          return false
+      }
+    }
+
+  }
+
+  return result;
+}
+
+// keep this function call here 
+console.log(QuestionsMarks(readline()));
+
+
+

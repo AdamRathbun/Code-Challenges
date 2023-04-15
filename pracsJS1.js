@@ -77,3 +77,34 @@ function palindrome2(word){
     return true
 }
 
+// Given a positive integer millis, write an asyncronous function that sleeps for millis milliseconds. It can resolve any value.
+async function sleep(millis) {
+    const promise = new Promise((resolve, reject)=>{
+        setTimeout(()=>{
+            resolve()
+        }, millis)
+    })
+    return promise
+}
+
+// Write code that enhances all arrays such that you can call the array.last() method on any array and it will return the last element. If there are no elements in the array, it should return -1. 
+// b.c it's the Array object, use this
+Array.prototype.last = function(arr) {
+    return this.length>1 ? this[this.length-1] : -1
+};
+
+// parameters ia n, an integer, and d, a digit integer, square all numbers from 1 to n, then check each time d comes up in these numbers
+function nbDig(n, d) {
+      let count=0
+      for (let i=0; i<=n; i++){
+        const square = i*i
+        const digits = square.toString().split('')
+        count+= digits.filter(item=>item===d.toString()).length
+      }
+      return count
+    }
+
+// check every hand to make sure you have a flush, with parameter as an array of strings representing cards
+function isFlush(cards) {
+    return cards.every(card=>cards[0].slice(-1)===card.slice(-1))
+  }
