@@ -108,3 +108,88 @@ function nbDig(n, d) {
 function isFlush(cards) {
     return cards.every(card=>cards[0].slice(-1)===card.slice(-1))
   }
+
+// bracket checker, () {} [] and each must be followed by the closing bracket, or else false
+function isValid(s) {
+    let stack = []
+    let map = {
+        '(' :')',
+        '{':'}',
+        '[':']'
+    }
+
+    for (let char of s){
+        if (char in map){
+            stack.push(map[char])
+        }else if (char!==stack.pop()){
+            return false
+        }
+    }
+
+    return stack.length===0
+}
+
+// Given a string s, find the length of the longest substring without repeating characters
+
+var lengthOfLongestSubstring = function(s) {
+    let start = 0
+    let max = 0
+    let map = new Map()
+
+    for (let i =0; i<s.length; i++){
+        if (map.has(s[i]) && map.get(s[i])>=start){
+            start=map.get(s[i])+1
+        }
+        map.set(s[i], i)
+        max=Math.max(max, i - start +1)
+    }
+    return max
+};
+
+// can do 6 katas per hour, but 5 min pushup that doubles every time he fucks up, how many mistakes can he afford
+function alexMistakes(numberOfKata, timeLimit){
+    // 	two parameters, number of katas, then the time limit. he can do 10 in an hour
+      let timeLeft=timeLimit - (numberOfKata*6)
+      let count=0
+      let pushup=5
+      
+      while(timeLeft>=pushup){
+        count++
+        timeLeft-=pushup
+        pushup*=2
+      }
+      
+      return count
+    }
+
+// try...catch block example: make a function that takes 2 parameters, numerator and denominator
+// return numerator/denominator and if an error occurs, it should return "Error: division impossible"
+// note in this case, looking for 0 and NaN is basically already good enough, but for more complex code, error is useful
+function divider(num, denom){
+    try{
+        if (denom===0){
+            return "Error division."
+        }
+        if (isNaN(denom) || isNaN(num)){
+            return 'Not a number'
+        }
+        return num/denom
+    }catch(error){
+        // throw error
+        // return "Error: division impossible""
+        // throw new Error("Error: division impossible")
+        return error.message
+    }
+}
+
+function divider2(num, denom){
+    try{
+        if (denom===0 || isNaN(num) || isNaN(denom)){
+            throw new Error('Bad arguments, enter positive integers.')
+        }
+        return num/denom
+    }catch(error){
+        // throw new Error('Error')
+        return error.message
+    }
+}
