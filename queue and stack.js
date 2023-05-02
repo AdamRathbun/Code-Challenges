@@ -58,3 +58,31 @@ stack.push(2)
 stack.push(3)
 stack.pop()
 stack.size()
+
+
+// new prac
+class Queue2{
+    constructor(){
+        this.head=0
+        this.tail=0
+        this.storage={}
+    }
+    enqueue(item){
+        this.tail++
+        this.storage[this.tail]=item
+    }
+    dequeue(){
+        const item=this.storage[this.head]
+        delete this.storage[this.head]
+        this.head++
+        return item
+    }
+    increment(amount, items){
+        if (items> (this.tail-this.head)){
+            return 'Not enough items in queue.'
+        }
+        for (let i=this.head; i<=(this.head+items); i++){
+            this.storage[this.head]+=amount
+        }
+    }
+}
