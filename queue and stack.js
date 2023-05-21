@@ -1,4 +1,4 @@
-// queue and stack practice
+// queue and stack practice 1
 
 class Queue{
     constructor(){
@@ -84,5 +84,22 @@ class Queue2{
         for (let i=this.head; i<=(this.head+items); i++){
             this.storage[this.head]+=amount
         }
+    }
+}
+
+class Stack2{
+    constructor(){
+        this.storage={}
+        this.capacity=0
+    }
+    push(item){
+        this.capacity++
+        this.storage[this.capacity]=item
+    }
+    pop(){
+        const item=this.storage[this.capacity]
+        delete this.storage[this.capacity]
+        this.capacity--
+        return item
     }
 }
