@@ -21,4 +21,19 @@ function houseNumbersSum(inputArray) {
   
   // given a number array, return sum before first 0
 
-  
+  function avg(a){
+    return (a.reduce((a,c)=>a+c))/a.length
+  }
+
+//   return average succinctly
+
+Array.prototype.remove = function(index) {
+    if (typeof index==='number' && index>=0){
+      this.splice(index,1)
+    }
+    
+    return this
+  };
+
+// add remove method to Array object so all arrays can remove an element. ex. let arr1=[0,3,4] arr1.remove(1) arr1 becomes [0,4]
+
