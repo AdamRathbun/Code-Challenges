@@ -37,3 +37,38 @@ Array.prototype.remove = function(index) {
 
 // add remove method to Array object so all arrays can remove an element. ex. let arr1=[0,3,4] arr1.remove(1) arr1 becomes [0,4]
 
+function arrayChange(arr) {
+    //coding and coding..
+    if (arr.length===0){
+      return 0
+    }
+    
+    let moves = 0
+    
+    for (let i=0; i<arr.length; i++){
+      if (arr[i]<=arr[i-1]){
+        let diff = arr[i-1] - arr[i] + 1
+        arr[i]+=diff
+        moves+=diff
+      }
+    }
+    
+    return moves
+    
+  }
+  
+  // return min number of moves to make arr elements increasing
+
+  function keysAndValues(data){
+    console.log(data)
+    let keys=[]
+    let values=[]
+    for (let key in data){
+      keys.push(key)
+      values.push(data[key])
+    }
+  
+    return [keys, values]
+  }
+
+//   return the keys in an array and the values in another array from an object
