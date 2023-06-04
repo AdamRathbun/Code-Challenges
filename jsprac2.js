@@ -248,3 +248,140 @@ function min(array){
 // filter: list[n: A] -> list[m(<=n): A]
 // reduce: list[n: A] -> element: B
 
+
+// Write
+// Array.prototype.remove = function(pred) {}
+// that given an array, removes all the elements that satisfy the predicate from the original array and then return all the elements that just got removed.
+// For example:
+
+// var array = [1,2,3,4,5];
+// // We wish to remove all the even elements from array and then return those removed elements
+// var removed = array.remove(function(a) { return a%2===0;});
+// // array === [1,3,5]  removed === [2,4]
+Array.prototype.remove = function (pred) {
+  let removed = this.filter(x=>pred(x))
+  this.splice(0, this.length, ...this.filter(x=>!pred(x)))
+  return removed
+};
+
+// Implement the method filter, which accepts a linked list (head) and a predicate function, and returns a new linked list (head) which only contains the elements which apply to the given predicate.
+
+// Ex: Given the list: 1 -> 2 -> 3, and the predicate x => x >= 2, filter should return 2 -> 3, since x >= 2 applies to both 2 and 3.
+
+// The linked list is defined as follows:
+
+// function Node(data, next = null) {
+//   this.data = data;
+//   this.next = next;
+// }
+// Note: the list may be null.
+
+function filter(head, p) {
+  
+  if (!head){
+    return null
+  }
+  
+  let newHead=null
+  let tail=null
+  
+  while (head){
+    if (p(head.data)){
+      const newNode = new Node(head.data)
+      if (!newHead){
+        newHead=newNode
+        tail=newNode
+      }else{
+        tail.next=newNode
+        tail=tail.next
+      }
+    }
+    head=head.next
+  }
+  
+  return newHead
+}
+
+// array sum reduce simple.
+function reducer(array){
+  return array.reduce((a,c)=>a+c,0)
+}
+
+// array of objects reduce, find sum of costs
+let arrayMaterials=[{name:'brick', cost:30000}, {name:'plaster', cost: 24000}, {name:'wood', cost: 50000}]
+
+function reducer2(array){
+  return array.reduce((a,c)=>a+c.cost, 0)
+}
+
+// convert 2-D array into an object with reduce
+let keyValuePairs = [['username', 'dcode'], ['member since', '2020-04-06'], ['age', 35]]
+
+function reducer3(array){
+
+  return array.reduce((a,c)=>{
+    let key = c[0]
+    let value = c[1]
+
+    a[key]=value
+    return a
+  })
+}
+
+// find the max or min salary of an array of people objects with reduce
+
+const people = [{name: 'Dom', occupation: 'SE', salary: 90000}, {name: 'Max', occupation: 'Mechanic', salary: 150000}, {name: 'DBeth', occupation: 'Teacher', salary: 75000}]
+
+// function reducer4(array){
+//   let arr1= []
+
+//   for (let i=0; i<array.length; i++){
+//     arr1.push(array[i].salary)
+//   }
+
+//   return Math.min(...arr1)
+// }
+
+function reducer4(array){
+// for highest salary
+  return array.reduce((a,c)=>{
+    if (c.salary>a){
+      return c.salary
+    }else {
+      return a
+    }
+  },0)
+}
+
+// function reducer4(array){
+//   // for highest salary
+//   return array.reduce((a,c)=>{
+//     return c.salary>a?c.salary:a
+//   },0)
+// }
+
+// version that returns the person object
+function reducer4(array){
+  // for highest salary
+    return array.reduce((a,c)=>{
+      if (c.salary>a.salary){
+        // return {name:c.name, occupation:c.occupation, salary:c.salary}
+        return c
+      }else {
+        return a
+      }
+    },{name:null, occupation:null, salary:0})
+  }
+
+// version that counts occurences of strings in array
+const colorSet=['green', 'red', 'blue', 'red', 'red', 'green']
+function reducer5(array){
+  console.log(array)
+
+  return array.reduce((a,c)=>{
+    a[c]=a[c]+1 || 1
+    return a
+  },{})
+
+}
+
