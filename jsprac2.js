@@ -385,3 +385,88 @@ function reducer5(array){
 
 }
 
+// concatenating uneven arrays of strings
+let unevenStuff = [['which', 'which', 'which', 'which'], ['sun', 'moon'], ['stream', 'food', 'ass']]
+function unevenArray(array){
+  return array.reduce((a,c)=>`${a},${c}`, '')
+}
+// and now find the unique elements in each subarray
+function noDupes(array){
+  console.log(array)
+
+  let uniques=array.map(subarray=>[...new Set(subarray)])
+  console.log(uniques)
+}
+
+// given an array, removes all the elements that satisfy the predicate from the original array and then return all the elements that just got removed.
+Array.prototype.remove = function (pred) {
+  let removed = this.filter(x=>pred(x))
+  this.splice(0, this.length, ...this.filter(x=>!pred(x)))
+  return removed
+};
+
+// The Array's reverse() method has gone missing! Re-write it, quick-sharp! When this method is called, it reverses the order of the items in the original array. Then then it returns that same, original array. No new arrays should need to be created to pass this kata.
+
+Array.prototype.reverse = function() {
+  let left = 0
+  let right = this.length-1
+  while (left<right){
+    let temp = this[left]
+    this[left]=this[right]
+    this[right]=temp
+    left++
+    right--
+  }
+  return this
+};
+
+// Create a function that takes 2 arrays of 5 string numbers each, and outputs the sum of the corresponding elements as strings as well. If any input is an empty string, it should return the number that isn't just an empty string. If both corresponding elements are empty, output "0".
+
+function sumArr(a,b) {
+  console.log(a,b)
+  let final=[]
+  let higherLength=Math.max(a.length, b.length)
+  for (let i=0; i<higherLength; i++){
+    let aNum=Number(a[i]) || 0
+    let bNum=Number(b[i]) || 0
+    let sum = aNum+bNum
+    final.push(String(sum))
+  }
+  return final
+}
+
+// Write a function that will check whether ANY permutation of the characters of the input string is a palindrome. Bonus points for a solution that is efficient and/or that uses only built-in language functions. Deem yourself brilliant if you can come up with a version that does not use any function whatsoever.
+
+// For this kata assume that all characters are lowercase.
+
+function permuteAPalindrome (input) { 
+  console.log(input)
+  
+//   could store in an object
+  
+  let storage = {}
+  let checker = 0
+  
+  for (let i=0; i<input.length; i++){
+    storage[input[i]] = storage[input[i]] + 1 || 1
+  }
+  
+  console.log(storage)
+  
+//   check to see if there's only 1 or less keys that has an odd number of value
+  for (let key in storage){
+//     checking odd
+    if (storage[key]%2!==0){
+      checker++
+    }
+  }
+//   if there's only 1 or less odd appearance values for a character, return true for palindrome
+//   if (checker===1 || checker===0){
+//     return true
+//   }else{
+//     return false
+//   }
+  
+  return checker===1 || checker===0 
+}
+
