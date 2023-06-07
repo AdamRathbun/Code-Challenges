@@ -470,3 +470,57 @@ function permuteAPalindrome (input) {
   return checker===1 || checker===0 
 }
 
+// taking in a string, checking if some permutation of the string becomes a palindrome, for example, 
+// madam and adamm are both palindromes if you rearrange
+// can only be lowercase strings
+
+// normal palindrome: split, reverse, join it, if equal to original then palindrome
+
+
+// Jump is a simple one-player game:
+
+// You are initially at the first cell of an array of cells containing non-negative integers;
+
+// At each step you can jump ahead in the array as far as the integer at the current cell, or any smaller number of cells. You win if there is a path that allows you to jump from one cell to another, eventually jumping past the end of the array, otherwise you lose.
+
+// For instance, if the array contains the integers
+
+// [2, 0, 3, 5, 0, 0, 3, 0, 0, 3, 1, 0],
+
+// you can win by jumping from 2, to 3, to 5, to 3, to 3, then past the end of the array.
+
+// You can also directly jump from from the initial cell(first cell) past the end of the array if they are integers to the right of that cell.
+
+// E.g
+
+// [6, 1, 1] is winnable
+
+// [6] is not winnable
+
+// Note: You can not jump from the last cell!
+
+// [1, 1, 3] is not winnable
+
+function canJump(array){
+  // your code here
+  if (array[0]===0 || array.length===1){
+    return false
+  }else if(array[0]>array.length){
+    return true
+  }
+  
+  let jumpsLeft=array[0]
+  
+  for (let i=1; i<array.length; i++){
+    jumpsLeft--
+    if (i===array.length-1 && jumpsLeft>0){
+      return true
+    }else if(jumpsLeft<array[i]){
+      jumpsLeft=array[i]
+    }
+  }
+  
+  return false
+  
+}
+
