@@ -524,3 +524,40 @@ function canJump(array){
   
 }
 
+// taking in an array of 0+ integers, see if I can jump from the beginning to the end. If I land on another
+// non zero integer, I can refresh my steps with that integer or use what's left of my current jump
+// cannot jump from the last cell no matter what
+
+
+// Write a function that takes an array of numbers (integers for the tests) and a target number. It should find two different items in the array that, when added together, give the target value. The indices of these items should then be returned in a tuple / list (depending on your language) like so: (index1, index2).
+
+// For the purposes of this kata, some tests may have multiple answers; any valid solutions will be accepted.
+
+// The input will always be valid (numbers will be an array of length 2 or greater, and all of the items will be numbers; target will always be the sum of two different items from that array).
+
+// Based on: http://oj.leetcode.com/problems/two-sum/
+
+function twoSum(numbers, target) {
+  //   console.log(numbers, target)
+    
+    let storage={}
+    
+    for (let i=0; i<numbers.length; i++){
+      let remainder = target - numbers[i]
+        console.log(`Index ${i}, remainder${remainder}`)
+      if (remainder in storage){
+        console.log(`If statement: ${storage[remainder]}`)
+        return [storage[remainder], i]
+      }else{
+        console.log(`Else statement Before: ${storage[numbers[i]]}`)
+        storage[numbers[i]]=i
+        console.log(`Else statement After: ${storage[numbers[i]]}`)
+      }
+    }
+  //   console.log(storage)
+    
+    return false
+  }
+  
+  // taking in an array of numbers and an integer target number, find two elements of the array such that they
+  // add up to the target integer. Return the indices of the array elements.
