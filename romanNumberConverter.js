@@ -2,10 +2,10 @@
 
 function romanNumeral(n){
     if (typeof n !=='number' && typeof n !=='string'){
-        throw new Error('invalid entry')
+        throw new Error('Please enter a number or a Roman numeral string.')
     }
 
-    // roman numerals to number
+    // roman numeral string to number
     if (typeof n==='string'){
         let string1 = n.toLowerCase().split('')
         console.log(string1)
@@ -50,6 +50,53 @@ function romanNumeral(n){
         return value
     }
 
-    
+    // number to roman numeral string
+    if (typeof n === 'number'){
+        let value = ''
+        let num=n
+        while (num>0){
+            if (num>=1000){
+                value=value.concat('m')
+                num-=1000
+            }else if (num>=900){
+                value=value.concat('cm')
+                num-=900
+            }else if (num>=500){
+                value=value.concat('d')
+                num-=500
+            }else if (num>=400){
+                value=value.concat('cd')
+                num-=400
+            }else if (num>=100){
+                value=value.concat('c')
+                num-=100
+            }else if (num>=90){
+                value=value.concat('xc')
+                num-=90
+            }else if (num>=50){
+                value=value.concat('l')
+                num-=50
+            }else if (num>=40){
+                value=value.concat('xl')
+                num-=40
+            }else if (num>=10){
+                value=value.concat('x')
+                num-=10
+            }else if (num===9){
+                value=value.concat('ix')
+                num-=9
+            }else if (num===5){
+                value=value.concat('v')
+                num-=5
+            }else if (num===4){
+                value=value.concat('iv')
+                num-=4
+            }else if (num>0){
+                value=value.concat('i')
+                num-=1
+            }
+        }
+        return value.toUpperCase()
+    }
 
 }
