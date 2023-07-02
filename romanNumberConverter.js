@@ -23,32 +23,33 @@ function romanNumeral(n){
             }else if (string1[i]==='c' && string1[i+1]==='d'){
                 value+=400
                 i++
-            }else if (string[i]==='c'){
+            }else if (string1[i]==='c'){
                 value+=100
-            }else if (string[i]==='x' && string[i+1]==='c'){
+            }else if (string1[i]==='x' && string1[i+1]==='c'){
                 value+=90
                 i++
-            }else if (string[i]==='l'){
+            }else if (string1[i]==='l'){
                 value+=50
-            }else if (string[i]==='x' && string[i+1]==='l'){
+            }else if (string1[i]==='x' && string1[i+1]==='l'){
                 value+=40
                 i++
-            }else if (string[i]==='x'){
+            }else if (string1[i]==='x'){
                 value+=10
-            }else if (string[i]==='i' && string[i+1]==='x'){
+            }else if (string1[i]==='i' && string1[i+1]==='x'){
                 value+=9
                 i++
-            }else if (string[i]==='v'){
+            }else if (string1[i]==='v'){
                 value+=5
-            }else if (string[i]==='i' && string[i+1]==='v'){
+            }else if (string1[i]==='i' && string1[i+1]==='v'){
                 value+=4
                 i++
-            }else if (string[i]==='i'){
+            }else if (string1[i]==='i'){
                 value+=1
             }
         }
         return value
     }
 
+    
 
 }
