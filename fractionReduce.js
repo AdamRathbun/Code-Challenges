@@ -13,4 +13,4 @@ function reduce(fraction){
     
     // given an array fraction of [a,b], reduce it to the simplest form and return that array
     // not a reduce() method problem, more like it wants to find the common divisor
-    // 
+    
