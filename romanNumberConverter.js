@@ -100,3 +100,108 @@ function romanNumeral(n){
     }
 
 }
+
+
+
+
+// practice
+
+function romanNum(num){
+    if (typeof num !=='string' && typeof num !=='number'){
+        throw new Error('Enter a valid entry.')
+    }
+
+    // convert Roman numerals to number
+    if (typeof num ==='string'){
+        let result=0
+        num=num.toLowerCase()
+
+        for (let i=0; i<num.length; i++){
+            if (num[i]==='m'){
+                result+=1000
+            }else if (num[i]==='c' && num[i+1]==='m'){
+                result+=900
+                i++
+            }else if (num[i]==='d'){
+                result+=500
+            }else if (num[i]==='c' && num[i+1]==='d'){
+                result+=400
+                i++
+            }else if (num[i]==='c'){
+                result+=100
+            }else if (num[i]==='x' && num[i+1]==='c'){
+                result+=90
+                i++
+            }else if (num[i]==='l'){
+                result+=50
+            }else if (num[i]==='x' && num[i+1]==='l'){
+                result+=40
+                i++
+            }else if (num[i]==='x'){
+                result+=10
+            }else if (num[i]==='i' && num[i+1]==='x'){
+                result+=9
+                i++
+            }else if (num[i]==='v'){
+                result+=5
+            }else if (num[i]==='i' && num[i+1]==='v'){
+                result+=4
+                i++
+            }else if (num[i]==='i'){
+                result++
+            }
+        }
+        return result
+    }
+
+    // number to Roman numerals
+    if (typeof num==='number'){
+        let result=''
+
+        while (num>0){
+            if (num>=1000){
+                result=result.concat('m')
+                num-=1000
+            }else if (num>=900){
+                result=result.concat('cm')
+                num-=900
+            }else if (num>=500){
+                result=result.concat('d')
+                num-=500
+            }else if (num>=400){
+                result=result.concat('cd')
+                num-=400
+            }else if (num>=100){
+                result=result.concat('c')
+                num-=100
+            }else if (num>=90){
+                result=result.concat('xc')
+                num-=90
+            }else if (num>=50){
+                result=result.concat('l')
+                num-=50
+            }else if (num>=40){
+                result=result.concat('xl')
+                num-=40
+            }else if (num>=10){
+                result=result.concat('x')
+                num-=10
+            }else if (num>=9){
+                result=result.concat('ix')
+                num-=9
+            }else if (num>=5){
+                result=result.concat('v')
+                num-=5
+            }else if (num>=4){
+                result=result.concat('iv')
+                num-=4
+            }else if (num>=1){
+                result=result.concat('i')
+                num--
+            }
+        }
+
+        return result.toUpperCase()
+    }
+
+}

@@ -45,3 +45,19 @@
 };
 
 // return value based on roman numeral string in parameter
+
+
+// const intToRoman = require("./kata")
+
+// let testIntToRoman = function(i, r) {
+//     test(`${i} -> ${r}`, () => {
+//         expect(intToRoman(i)).toBe(r)
+//     })
+// }
+
+// describe("convert integers to roman numerals", () => {
+//         testIntToRoman(1, "I")
+//         testIntToRoman(2, "II")
+//         testIntToRoman(5, "V")
+//         testIntToRoman(3277, "MMMCCLXXVII")
+// })
