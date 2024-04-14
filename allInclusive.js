@@ -9,7 +9,6 @@ function containAllRots(strng, arr) {
       return false
     }
   }
-
   return true
 }
 
