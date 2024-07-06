@@ -16,4 +16,4 @@ function containAllRots(strng, arr) {
 // return true or false if it does contain all combinations or not
 // ex. "bsjq", ["bsjq", "qbsj", "sjqb", "twZNsslC", "jqbs"]) -> true
 
-// can do a for loop where you check via slice method
+// can do a for loop where you check via slice method.
